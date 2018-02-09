@@ -104,6 +104,7 @@ class ExcelReaderScript():
 
     def push_picture_to_s3(self, filename):
         s3 = boto3.resource('s3')
+        # Provide your bucket name here
         my_bucket_name = "yourbucketname"
         my_bucket = s3.Bucket(my_bucket_name)
         try:
