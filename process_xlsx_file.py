@@ -85,10 +85,11 @@ class ExcelReaderScript():
                     dict_list.append(d)
                 data = json.dumps(dict_list, indent=4, sort_keys=True)
                 current_working_directory = os.getcwd()
-                file_name = (sheet.name +
+                file_name = ('processed_data' +
                              '_' +
                              str(uuid.uuid4()) +
                              '.json')
+                # Storing the data as json file in current directory
                 file = open(file_name, 'w')
                 file.write(data)
                 file.close()
@@ -97,6 +98,8 @@ class ExcelReaderScript():
                     or creating the required output %s" % e)
                 sys.exit(1)
             else:
+                # Delete the xlsx file after processing
+                os.remove(excel_file_path)
                 return file_name
 
     def push_picture_to_s3(self, filename):
