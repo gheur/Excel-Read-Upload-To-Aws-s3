@@ -20,3 +20,4 @@ Prerequisites:
     8. xlrd
     9. botocore
 2. Create the amazone aws credential file in your local system. By default, its location is at ~/.aws/credentials (http://boto3.readthedocs.io/en/latest/guide/quickstart.html)
+3. Please provide bucketname in the code.
