@@ -34,7 +34,7 @@ class ExcelReaderScript():
         # Reading the file and writing to a json file
         result_file = self.read_excel_file()
         # The created result file is pushing to amazone s3
-        self.push_picture_to_s3(result_file)
+        self.push_file_to_s3(result_file)
 
     def download_file_from_url(self):
         url = self.default_url
@@ -102,7 +102,7 @@ class ExcelReaderScript():
                 os.remove(excel_file_path)
                 return file_name
 
-    def push_picture_to_s3(self, filename):
+    def push_file_to_s3(self, filename):
         s3 = boto3.resource('s3')
         # Provide your bucket name here
         my_bucket_name = "yourbucketname"
